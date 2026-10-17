@@ -69,15 +69,21 @@ export const craft = [
     title: '3D Animation — Blender',
     detail:
       'Modeling, shading, animation, physics, rendering, particle systems, baking, environments & UV textures.',
+    image: '/images/craft-3d.jpg',
+    imageAlt: 'Abstract flowing 3D forms rendered in grayscale',
   },
   {
     title: 'Photography',
     detail: 'Composition, framing and lighting — and how each shapes a scene to tell a story.',
+    image: '/images/craft-photography.jpg',
+    imageAlt: 'Camera body and prime lenses laid out on dark wood, in monochrome',
   },
   {
     title: 'Filmmaking',
     detail:
       'Camera movements, angles and settings — aperture, shutter, ISO, rule of thirds, golden ratio, leading lines & symmetry.',
+    image: '/images/craft-filmmaking.jpg',
+    imageAlt: 'Film slate raised on a bright outdoor set — scene coming in',
   },
 ]
 
@@ -89,6 +95,8 @@ export const projects = [
     description:
       'A task manager built with React — add, complete, delete and filter tasks, with state persisted to localStorage.',
     tags: ['React', 'LocalStorage'],
+    image: '/images/proj-taskflow.jpg',
+    imageAlt: 'Laptop on a studio desk with code on screen, in monochrome',
     link: 'https://github.com/abdulmoiz', // TODO: real repo link
   },
   {
@@ -98,6 +106,8 @@ export const projects = [
     description:
       'A weather dashboard that fetches live data from a public API and shows current conditions with a 5-day forecast.',
     tags: ['JavaScript', 'REST API'],
+    image: '/images/proj-skycast.jpg',
+    imageAlt: 'Starry night sky with a shooting star over dark mountains, in monochrome',
     link: 'https://github.com/abdulmoiz', // TODO: real repo link
   },
   {
@@ -107,6 +117,8 @@ export const projects = [
     description:
       'A single page that organises all my Web & Mobile App Development coursework from Saylani, week by week.',
     tags: ['HTML', 'CSS', 'JS'],
+    image: '/images/proj-wma.jpg',
+    imageAlt: 'Dark code editor glowing on a laptop beside a window, in monochrome',
     link: 'https://github.com/abdulmoiz', // TODO: real repo link
   },
   {
@@ -116,6 +128,8 @@ export const projects = [
     description:
       'My first hand-coded portfolio in plain HTML and CSS — the fossil record of how far I have come.',
     tags: ['HTML', 'CSS'],
+    image: '/images/proj-portfolio.jpg',
+    imageAlt: 'Hand-drawn website wireframe sketches, in monochrome',
     link: 'https://github.com/abdulmoiz', // TODO: real repo link
   },
 ]

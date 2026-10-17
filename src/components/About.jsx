@@ -84,13 +84,30 @@ export default function About() {
           {craft.map((item, i) => {
             const Icon = craftIcons[item.title] || Aperture
             return (
-              <Reveal key={item.title} as="div" delay={i * 100}>
-                <Card hover>
-                  <CardContent className="pt-6">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-bright/10">
-                      <Icon className="h-4.5 w-4.5 text-teal-bright" aria-hidden="true" />
-                    </span>
-                    <p className="font-display mt-4 font-bold">{item.title}</p>
+              <Reveal key={item.title} as="div" delay={i * 100} className="h-full">
+                <Card hover className="group h-full overflow-hidden">
+                  {/* Monochrome cover — zooms with the card's rise */}
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.imageAlt}
+                      loading="lazy"
+                      decoding="async"
+                      className="img-mono group-hover:scale-[1.045]"
+                    />
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t from-paper/50 via-transparent to-transparent"
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <CardContent className="pt-5">
+                    <div className="flex items-center justify-between gap-3">
+                      <p className="font-display font-bold">{item.title}</p>
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-teal-bright/10">
+                        <Icon className="h-4 w-4 text-teal-bright" aria-hidden="true" />
+                      </span>
+                    </div>
                     <p className="mt-2 text-sm leading-relaxed text-faint">{item.detail}</p>
                     <Badge variant="default" className="mt-4">
                       YouTube lens

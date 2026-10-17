@@ -33,8 +33,23 @@ export default function Hero() {
           </span>
         </h1>
 
+        {/* Cinematic band — projector beam through smoke, mono */}
+        <div className="rise rise-2 relative mt-10 h-28 overflow-hidden rounded-3xl sm:h-52">
+          <img
+            src="/images/hero-cinema.jpg"
+            alt="Film projector cutting a bright beam through drifting smoke, in monochrome"
+            fetchPriority="high"
+            decoding="async"
+            className="img-mono"
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-paper/70 via-transparent to-transparent"
+            aria-hidden="true"
+          />
+        </div>
+
         {/* Story + actions on one baseline */}
-        <div className="rise rise-2 mt-10 grid gap-10 sm:mt-14 sm:grid-cols-[1fr_auto] sm:items-end">
+        <div className="rise rise-2 mt-8 grid gap-10 sm:mt-10 sm:grid-cols-[1fr_auto] sm:items-end">
           <div>
             <p className="max-w-xl text-lg leading-relaxed text-faint">{profile.tagline}</p>
             {current && (

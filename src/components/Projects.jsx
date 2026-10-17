@@ -1,7 +1,7 @@
 import SectionHead from './Section'
 import { profile, projects } from '../data'
 import { Badge, Card, CardContent, CardFooter, Reveal } from './ui'
-import { ArrowUpRight, FolderGit2 } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 
 export default function Projects() {
   return (
@@ -21,11 +21,26 @@ export default function Projects() {
               className="group block"
               aria-label={`${project.title} — open on GitHub`}
             >
-              <Card hover className="h-full">
+              <Card hover className="h-full overflow-hidden">
+                {/* Monochrome cover — zooms with the card's rise */}
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.imageAlt}
+                    loading="lazy"
+                    decoding="async"
+                    className="img-mono group-hover:scale-[1.045]"
+                  />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-paper/60 via-transparent to-transparent"
+                    aria-hidden="true"
+                  />
+                </div>
+
                 <CardContent className="pt-6">
                   <div className="mb-5 flex items-center justify-between gap-4">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-bright/10">
-                      <FolderGit2 className="h-4.5 w-4.5 text-teal-bright" aria-hidden="true" />
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-faint">
+                      {project.title}
                     </span>
                     <div className="flex items-center gap-2">
                       <Badge variant="outline">{project.num}</Badge>

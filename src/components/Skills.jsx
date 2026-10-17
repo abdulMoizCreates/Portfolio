@@ -188,9 +188,23 @@ export default function Skills() {
               </CardContent>
             </Card>
 
-            {/* Foundations badges */}
-            <Card hover>
-              <CardContent className="pt-6">
+            {/* Foundations badges — retro hardware tells the story */}
+            <Card hover className="group overflow-hidden">
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <img
+                  src="/images/tools-foundations.jpg"
+                  alt="Monochrome collection of vintage tech — micro computer, handheld, cassettes and keyboards"
+                  loading="lazy"
+                  decoding="async"
+                  className="img-mono group-hover:scale-[1.045]"
+                />
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-paper/60 via-transparent to-transparent"
+                  aria-hidden="true"
+                />
+              </div>
+
+              <CardContent className="pt-5">
                 <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-faint">
                   Foundations &amp; tools
                 </p>

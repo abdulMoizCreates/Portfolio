@@ -83,6 +83,15 @@ body {
   -webkit-text-stroke: clamp(1px, 0.3vw, 2.5px) rgb(242 243 242 / 0.5);
 }
 
+/* Monochrome cover images — grayscale forced double: sat=-100 at source + CSS filter here. */
+.img-mono {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.06) brightness(0.94);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 /* Soft pulse for the availability dot */
 @keyframes pulse-dot {
   0%,
@@ -301,6 +310,9 @@ html {
   .hero-stroke {
     color: #111111;
     -webkit-text-stroke: 0;
+  }
+  .img-mono {
+    display: none;
   }
   [class*="border-ink"] {
     border-color: rgb(17 17 17 / 0.2) !important;
