@@ -48,7 +48,7 @@ export default function Contact() {
   return (
     <section id="contact" className="scroll-mt-16">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-        <SectionHead index="04" title="Contact" />
+        <SectionHead title="Contact" />
 
         <Reveal as="p" className="font-display max-w-3xl text-4xl font-bold uppercase leading-[1.05] tracking-tight text-balance sm:text-6xl">
           Have an idea?

@@ -24,7 +24,7 @@ export default function About() {
   return (
     <section id="about" className="scroll-mt-16">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-        <SectionHead index="01" title="About" />
+        <SectionHead title="About" />
 
         <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
           <Reveal as="div" className="max-w-xl space-y-5 text-lg leading-relaxed">

@@ -43,7 +43,7 @@ export default function Skills() {
   return (
     <section id="skills" className="scroll-mt-16">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-        <SectionHead index="02" title="Skills" />
+        <SectionHead title="Skills" />
 
         {/* Search card — filters the list live, "/" focuses it */}
         <Reveal as="div" className="mb-10 max-w-xl">
