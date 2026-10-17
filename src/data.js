@@ -11,8 +11,8 @@ export const profile = {
   email: 'hello@abdulmoiz.dev', // TODO: replace with your real email
   location: 'Karachi, Pakistan', // TODO: replace with your city
   availability: 'Open to internships & junior roles',
-  github: 'https://github.com/abdulmoiz', // TODO: replace with your username
-  linkedin: 'https://www.linkedin.com/in/abdulmoiz', // TODO: replace with your handle
+  github: 'https://github.com/abdulMoizCreates',
+  linkedin: 'https://www.linkedin.com/in/abdul-moiz-522607437/',
 }
 
 export const facts = [
@@ -97,7 +97,7 @@ export const projects = [
     tags: ['React', 'LocalStorage'],
     image: '/images/proj-taskflow.jpg',
     imageAlt: 'Laptop on a studio desk with code on screen, in monochrome',
-    link: 'https://github.com/abdulmoiz', // TODO: real repo link
+    link: 'https://github.com/abdulMoizCreates?tab=repositories', // TODO: swap for the project's real repo link
   },
   {
     num: '02',
@@ -108,7 +108,7 @@ export const projects = [
     tags: ['JavaScript', 'REST API'],
     image: '/images/proj-skycast.jpg',
     imageAlt: 'Starry night sky with a shooting star over dark mountains, in monochrome',
-    link: 'https://github.com/abdulmoiz', // TODO: real repo link
+    link: 'https://github.com/abdulMoizCreates?tab=repositories', // TODO: swap for the project's real repo link
   },
   {
     num: '03',
@@ -119,7 +119,7 @@ export const projects = [
     tags: ['HTML', 'CSS', 'JS'],
     image: '/images/proj-wma.jpg',
     imageAlt: 'Dark code editor glowing on a laptop beside a window, in monochrome',
-    link: 'https://github.com/abdulmoiz', // TODO: real repo link
+    link: 'https://github.com/abdulMoizCreates?tab=repositories', // TODO: swap for the project's real repo link
   },
   {
     num: '04',
@@ -130,7 +130,7 @@ export const projects = [
     tags: ['HTML', 'CSS'],
     image: '/images/proj-portfolio.jpg',
     imageAlt: 'Hand-drawn website wireframe sketches, in monochrome',
-    link: 'https://github.com/abdulmoiz', // TODO: real repo link
+    link: 'https://github.com/abdulMoizCreates?tab=repositories', // TODO: swap for the project's real repo link
   },
 ]
 
