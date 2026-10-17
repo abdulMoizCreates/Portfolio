@@ -33,23 +33,8 @@ export default function Hero() {
           </span>
         </h1>
 
-        {/* Cinematic band — projector beam through smoke, mono */}
-        <div className="rise rise-2 relative mt-10 h-28 overflow-hidden rounded-3xl sm:h-52">
-          <img
-            src="/images/hero-cinema.jpg"
-            alt="Film projector cutting a bright beam through drifting smoke, in monochrome"
-            fetchPriority="high"
-            decoding="async"
-            className="img-mono"
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-paper/70 via-transparent to-transparent"
-            aria-hidden="true"
-          />
-        </div>
-
         {/* Story + actions on one baseline */}
-        <div className="rise rise-2 mt-8 grid gap-10 sm:mt-10 sm:grid-cols-[1fr_auto] sm:items-end">
+        <div className="rise rise-2 mt-10 grid gap-10 sm:mt-14 sm:grid-cols-[1fr_auto] sm:items-end">
           <div>
             <p className="max-w-xl text-lg leading-relaxed text-faint">{profile.tagline}</p>
             {current && (
@@ -73,17 +58,17 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Marquee slab — the poster's closing edge */}
-      <div className="mx-auto mt-auto w-full max-w-6xl px-5 pb-5 sm:px-8 sm:pb-6">
-        <div className="marquee overflow-hidden rounded-full bg-ink py-3.5 shadow-[0_20px_60px_-24px_rgb(0_0_0/0.8)]">
-          <div className="marquee-track flex w-max items-center gap-8 whitespace-nowrap">
+      {/* Skills marquee — invisible container, white words flowing right to left */}
+      <div className="mx-auto mt-auto w-full max-w-6xl px-5 pb-6 sm:px-8 sm:pb-8">
+        <div className="marquee overflow-hidden">
+          <div className="marquee-track flex w-max items-center gap-10 whitespace-nowrap">
             {[...ticker, ...ticker].map((word, i) => (
               <span
                 key={i}
-                className="flex items-center gap-8 text-sm font-bold uppercase tracking-[0.25em] text-paper"
+                className="flex items-center gap-10 text-base font-bold uppercase tracking-[0.3em] text-ink"
               >
                 {word}
-                <span className="text-teal" aria-hidden="true">
+                <span className="text-teal-bright" aria-hidden="true">
                   ✦
                 </span>
               </span>

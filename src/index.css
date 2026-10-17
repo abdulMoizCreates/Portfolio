@@ -133,6 +133,12 @@ body {
   will-change: transform;
 }
 
+/* Invisible container — words dissolve at the edges instead of hard cuts */
+.marquee {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
 /* Custom range slider — modern thumb over a filled track */
 .range {
   height: 0.5rem;
