@@ -2,7 +2,28 @@ import { useEffect, useRef, useState } from 'react'
 import SectionHead from './Section'
 import { meters, skills, tools } from '../data'
 import { Badge, Card, CardContent, CardHeader, CardTitle, CountUp, Progress, Reveal, Search, Slider } from './ui'
-import { ArrowLeftRight, Braces, Code2, Feather, Frame, GitBranch, Component, PenTool, SlidersHorizontal, Zap } from 'lucide-react'
+import {
+  ArrowLeftRight,
+  Atom,
+  BookOpen,
+  Braces,
+  Code2,
+  Database,
+  Feather,
+  Film,
+  Frame,
+  GitBranch,
+  Component,
+  Hexagon,
+  Leaf,
+  Palette,
+  PenTool,
+  Route,
+  SlidersHorizontal,
+  Sparkles,
+  Wind,
+  Zap,
+} from 'lucide-react'
 
 const toolIcons = {
   HTML5: Code2,
@@ -14,6 +35,20 @@ const toolIcons = {
   Lucide: Feather,
   'Figma (basics)': Frame,
   'Git & GitHub': GitBranch,
+}
+
+// One mark per skill — the card's heading glyph
+const skillIcons = {
+  React: Atom,
+  'Tailwind CSS': Wind,
+  Supabase: Database,
+  'Node.js': Hexagon,
+  Express: Route,
+  MongoDB: Leaf,
+  'AI Visuals': Sparkles,
+  'Video Editing': Film,
+  Storytelling: BookOpen,
+  Canva: Palette,
 }
 
 export default function Skills() {
@@ -45,7 +80,7 @@ export default function Skills() {
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
         <SectionHead title="Skills" />
 
-        {/* Search card — filters the list live, "/" focuses it */}
+        {/* Search card — filters the grid live, "/" focuses it */}
         <Reveal as="div" className="mb-10 max-w-xl">
           <Card>
             <CardContent className="pt-6">
@@ -61,28 +96,40 @@ export default function Skills() {
           </Card>
         </Reveal>
 
-        {/* Big typographic skill list — hover inverts the row */}
-        <ul>
-          {filtered.map((skill, index) => (
-            <Reveal
-              key={skill.name}
-              as="li"
-              // Cap the stagger so long lists don't feel like they are buffering
-              delay={Math.min(index, 3) * 70}
-              className="group flex items-baseline gap-5 py-6 hover:bg-ink sm:gap-8"
-            >
-              <span className="font-display w-8 shrink-0 text-sm font-bold text-teal-bright transition-colors group-hover:text-teal">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <span className="font-display text-2xl font-bold uppercase tracking-tight transition-all group-hover:translate-x-2 group-hover:text-paper sm:text-4xl">
-                {skill.name}
-              </span>
-              <span className="ml-auto hidden text-sm text-faint transition-colors group-hover:text-paper/70 sm:block">
-                {skill.note}
-              </span>
-            </Reveal>
-          ))}
-        </ul>
+        {/* Skill cards — the invert-on-hover legacy of the old list, now as tiles */}
+        <div className="grid gap-5 sm:grid-cols-2">
+          {filtered.map((skill, index) => {
+            const Icon = skillIcons[skill.name]
+            return (
+              <Reveal key={skill.name} as="div" className="h-full" delay={Math.min(index, 4) * 60}>
+                <Card className="group h-full cursor-default transition-all duration-300 hover:-translate-y-1 hover:bg-ink hover:shadow-[0_34px_90px_-26px_rgb(45_212_191/0.4)]">
+                  <CardContent className="flex h-full flex-col pt-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-bright/10 transition-colors group-hover:bg-teal/15">
+                        {Icon && (
+                          <Icon
+                            className="h-5 w-5 text-teal-bright transition-colors group-hover:text-teal"
+                            aria-hidden="true"
+                          />
+                        )}
+                      </span>
+                      <span className="font-display text-xs font-bold text-ink/20 transition-colors group-hover:text-paper/40">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+
+                    <h3 className="font-display mt-6 text-xl font-bold uppercase tracking-tight transition-colors group-hover:text-paper sm:text-2xl">
+                      {skill.name}
+                    </h3>
+                    <p className="mt-auto pt-4 text-sm leading-relaxed text-faint transition-colors group-hover:text-paper/70">
+                      {skill.note}
+                    </p>
+                  </CardContent>
+                </Card>
+              </Reveal>
+            )
+          })}
+        </div>
 
         {filtered.length === 0 && filteredTools.length === 0 && (
           <p className="py-10 text-sm text-faint">
@@ -149,10 +196,12 @@ export default function Skills() {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {filteredTools.map((tool) => {
-                    const Icon = toolIcons[tool]
+                    const ToolIcon = toolIcons[tool]
                     return (
                       <Badge key={tool} variant="default" className="px-3.5 py-1.5">
-                        {Icon && <Icon className="h-3.5 w-3.5 text-teal-bright" aria-hidden="true" />}
+                        {ToolIcon && (
+                          <ToolIcon className="h-3.5 w-3.5 text-teal-bright" aria-hidden="true" />
+                        )}
                         {tool}
                       </Badge>
                     )
