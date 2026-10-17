@@ -1,60 +1,84 @@
 // ════════════════════════════════════════════════════════════════════════════
 //  YOUR DETAILS — edit this single file to make the portfolio yours.
-//  Look for the "TODO" marks and swap in your real info.
 // ════════════════════════════════════════════════════════════════════════════
 
 export const profile = {
   name: 'Abdul Moiz',
   initials: 'AM.',
-  role: 'Front-End Developer',
+  role: 'Creative Front-End Developer',
   tagline:
-    'I build clean, responsive interfaces with React and Tailwind CSS — turning what I learn into real, working products.',
-  email: 'abdulmoiz.creates@gmail.com', // TODO: replace with your real email
+    'I build web interfaces the way I cut films — with story, pacing and feel. Learning full-stack web dev at Saylani IT, crafting AI visuals and video edits on the side.',
+  email: 'hello@abdulmoiz.dev', // TODO: replace with your real email
   location: 'Karachi, Pakistan', // TODO: replace with your city
   availability: 'Open to internships & junior roles',
-  github: 'https://github.com/abdulMoizCreates', // TODO: replace with your username
-  linkedin: 'https://www.linkedin.com/in/abdul-moiz-522607437/', // TODO: replace with your handle
+  github: 'https://github.com/abdulmoiz', // TODO: replace with your username
+  linkedin: 'https://www.linkedin.com/in/abdulmoiz', // TODO: replace with your handle
 }
 
 export const facts = [
   { label: 'Location', value: 'Karachi, Pakistan' },
-  { label: 'Focus', value: 'Front-End / Web Apps' },
+  { label: 'Focus', value: 'Creative Web — React & MERN' },
   { label: 'Status', value: 'Open to internships' },
 ]
 
+// Big numbered list on the Skills page
 export const skills = [
   { name: 'React', note: 'components, hooks & state' },
-  { name: 'Next.js', note: 'App Router, SSR & API routes' },
+  { name: 'Tailwind CSS', note: 'utility-first styling' },
+  { name: 'Supabase', note: 'auth, database & storage' },
+  { name: 'Node.js', note: 'JavaScript on the server' },
   { name: 'Express', note: 'REST APIs & middleware' },
   { name: 'MongoDB', note: 'schemas, CRUD & aggregation' },
-  { name: 'Adobe Premiere Pro', note: 'video editing & pacing' },
-  { name: 'After Effects', note: 'motion graphics & VFX' },
-  { name: 'Illustrator', note: 'vector art & logo design' },
-  { name: 'Photoshop', note: 'raster & photo composites' },
-  { name: 'Canva', note: 'fast brand & social layouts' },
-  { name: 'AI Filmmaking Tools', note: 'script-to-screen workflows' },
+  { name: 'AI Visuals', note: 'generating & refining imagery' },
+  { name: 'Video Editing', note: 'pacing, cuts & sound' },
+  { name: 'Storytelling', note: 'scenes, arcs & rhythm' },
+  { name: 'Canva', note: 'certified design essentials' },
 ]
 
-export const tools = ['HTML5', 'CSS3', 'JavaScript', 'Tailwind CSS', 'Git & GitHub', 'Vite', 'Figma (basics)']
+// Foundations chips + tool icons (Lucide) on the Skills page
+export const tools = ['HTML5', 'CSS3', 'JavaScript', 'Axios', 'Vite', 'shadcn/ui', 'Lucide', 'Git & GitHub']
 
 // Skill groupings used on the Resume page
 export const stacks = [
-  { label: 'Web Development', items: ['React', 'Next.js', 'Express', 'MongoDB'] },
-  {
-    label: 'Creative Suite',
-    items: ['Adobe Premiere Pro', 'After Effects', 'Illustrator', 'Photoshop', 'Canva'],
-  },
-  { label: 'AI Media', items: ['AI Filmmaking Tools'] },
+  { label: 'Web Development', items: ['React', 'Tailwind CSS', 'Supabase', 'Node.js', 'Express', 'MongoDB'] },
+  { label: 'Tooling & Libraries', items: ['Axios', 'Vite', 'shadcn/ui', 'Lucide', 'Git & GitHub'] },
+  { label: 'Creative', items: ['AI visuals', 'Video editing & storytelling', 'Canva', 'Blender'] },
 ]
 
 // Comfort meters rendered as sliders on the Skills page (0–100)
 export const meters = [
-  { name: 'React', value: 70 },
-  { name: 'Next.js', value: 60 },
+  { name: 'React', value: 75 },
+  { name: 'Tailwind CSS', value: 80 },
+  { name: 'Supabase', value: 60 },
   { name: 'Express', value: 55 },
-  { name: 'MongoDB', value: 50 },
-  { name: 'Adobe Premiere Pro', value: 75 },
-  { name: 'After Effects', value: 65 },
+  { name: 'MongoDB', value: 55 },
+  { name: 'Video Editing', value: 85 },
+]
+
+// Certifications on the About & Resume cards
+export const certifications = [
+  { title: 'Canva Essentials', issuer: 'The Canva Team' },
+  { title: 'Graphic Design Essentials', issuer: 'The Canva Team' },
+  { title: 'Video Editing & Freelancing', issuer: 'DigiSkills.pk' },
+  { title: 'HTML & CSS Essentials', issuer: 'Cisco' },
+]
+
+// Self-taught creative craft (YouTube lens)
+export const craft = [
+  {
+    title: '3D Animation — Blender',
+    detail:
+      'Modeling, shading, animation, physics, rendering, particle systems, baking, environments & UV textures.',
+  },
+  {
+    title: 'Photography',
+    detail: 'Composition, framing and lighting — and how each shapes a scene to tell a story.',
+  },
+  {
+    title: 'Filmmaking',
+    detail:
+      'Camera movements, angles and settings — aperture, shutter, ISO, rule of thirds, golden ratio, leading lines & symmetry.',
+  },
 ]
 
 export const projects = [

@@ -2,16 +2,18 @@ import { useEffect, useRef, useState } from 'react'
 import SectionHead from './Section'
 import { meters, skills, tools } from '../data'
 import { Badge, Card, CardContent, CardHeader, CardTitle, Progress, Search, Slider } from './ui'
-import { Braces, Code2, Frame, GitBranch, PenTool, SlidersHorizontal, Wind, Zap } from 'lucide-react'
+import { ArrowLeftRight, Braces, Code2, Feather, Frame, GitBranch, Component, PenTool, SlidersHorizontal, Zap } from 'lucide-react'
 
 const toolIcons = {
   HTML5: Code2,
   CSS3: PenTool,
   JavaScript: Braces,
-  'Tailwind CSS': Wind,
-  'Git & GitHub': GitBranch,
+  Axios: ArrowLeftRight,
   Vite: Zap,
+  'shadcn/ui': Component,
+  Lucide: Feather,
   'Figma (basics)': Frame,
+  'Git & GitHub': GitBranch,
 }
 
 export default function Skills() {
@@ -39,7 +41,7 @@ export default function Skills() {
   const avg = meters.reduce((sum, m) => sum + (levels[m.name] ?? m.value), 0) / meters.length
 
   return (
-    <section id="skills" className="scroll-mt-16 border-t border-ink/10">
+    <section id="skills" className="scroll-mt-16">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
         <SectionHead index="02" title="Skills" />
 
@@ -62,7 +64,7 @@ export default function Skills() {
           {filtered.map((skill, index) => (
             <li
               key={skill.name}
-              className="group flex items-baseline gap-5 border-b border-ink/10 py-5 transition-colors last:border-b-0 hover:bg-ink sm:gap-8"
+              className="group flex items-baseline gap-5 py-6 transition-colors hover:bg-ink sm:gap-8"
             >
               <span className="font-display w-8 shrink-0 text-sm font-bold text-teal-bright transition-colors group-hover:text-teal">
                 {String(index + 1).padStart(2, '0')}

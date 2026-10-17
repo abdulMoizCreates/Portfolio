@@ -1,15 +1,9 @@
-const padding = {
-  content: 'p-6 pt-0',
-  header: 'p-6 pb-4',
-  footer: 'p-6 pt-4',
-}
-
 export function Card({ hover = false, className = '', children, ...props }) {
   return (
     <div
-      className={`rounded-3xl border border-ink/10 bg-ink/[0.04] ${
+      className={`rounded-3xl bg-ink/[0.06] shadow-[0_18px_50px_-20px_rgb(0_0_0/0.55)] ${
         hover
-          ? 'transition-all duration-300 hover:-translate-y-1 hover:border-ink/25 hover:shadow-[0_28px_80px_-32px_rgb(45_212_191/0.4)]'
+          ? 'transition-all duration-300 hover:-translate-y-1 hover:bg-ink/[0.08] hover:shadow-[0_34px_90px_-26px_rgb(13_150_136/0.45)]'
           : ''
       } ${className}`}
       {...props}
@@ -21,7 +15,7 @@ export function Card({ hover = false, className = '', children, ...props }) {
 
 export function CardHeader({ className = '', children, ...props }) {
   return (
-    <div className={`${padding.header} ${className}`} {...props}>
+    <div className={`p-6 pb-4 ${className}`} {...props}>
       {children}
     </div>
   )
@@ -40,7 +34,7 @@ export function CardTitle({ className = '', children, ...props }) {
 
 export function CardContent({ className = '', children, ...props }) {
   return (
-    <div className={`${padding.content} ${className}`} {...props}>
+    <div className={`p-6 pt-0 ${className}`} {...props}>
       {children}
     </div>
   )
@@ -48,7 +42,7 @@ export function CardContent({ className = '', children, ...props }) {
 
 export function CardFooter({ className = '', children, ...props }) {
   return (
-    <div className={`${padding.footer} ${className}`} {...props}>
+    <div className={`p-6 pt-4 ${className}`} {...props}>
       {children}
     </div>
   )

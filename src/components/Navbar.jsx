@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <header className="no-print fixed inset-x-0 top-3 z-50 flex flex-col items-center gap-2 px-4 sm:top-4">
-      <nav className="flex h-12 w-full max-w-6xl items-center justify-between gap-2 rounded-full border border-ink/10 bg-paper/70 pl-5 pr-1.5 shadow-[0_16px_40px_-16px_rgb(0_0_0/0.6)] backdrop-blur-xl">
+      <nav className="flex h-12 w-full max-w-6xl items-center justify-between gap-2 rounded-full bg-paper/70 pl-5 pr-1.5 shadow-[0_18px_50px_-12px_rgb(0_0_0/0.7)] backdrop-blur-xl">
         <Link to="/" className="font-display shrink-0 text-lg font-bold tracking-tight">
           {profile.initials.slice(0, -1)}
           <span className="text-teal-bright">.</span>
@@ -63,7 +63,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="w-full max-w-md rounded-3xl border border-ink/10 bg-paper/90 p-2 shadow-[0_24px_60px_-20px_rgb(0_0_0/0.7)] backdrop-blur-xl sm:hidden">
+        <div className="w-full max-w-md rounded-3xl bg-paper/90 p-2 shadow-[0_28px_70px_-18px_rgb(0_0_0/0.8)] backdrop-blur-xl sm:hidden">
           {links.map((link) => (
             <NavLink
               key={link.to}

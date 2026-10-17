@@ -1,8 +1,8 @@
 const variants = {
   primary:
     'bg-teal text-white shadow-[0_10px_30px_-12px_rgb(15_118_110/0.7)] hover:bg-teal-deep active:scale-[0.98]',
-  outline: 'border border-ink/20 text-ink hover:border-ink/40 hover:bg-ink/5 active:scale-[0.98]',
-  ghost: 'text-faint hover:bg-ink/5 hover:text-ink active:scale-[0.98]',
+  outline: 'bg-ink/10 text-ink hover:bg-ink/15 active:scale-[0.98]',
+  ghost: 'text-faint hover:bg-ink/10 hover:text-ink active:scale-[0.98]',
 }
 
 const sizes = {
@@ -13,7 +13,7 @@ const sizes = {
 }
 
 export function buttonClasses({ variant = 'primary', size = 'md', className = '' } = {}) {
-  return `inline-flex shrink-0 items-center justify-center gap-2 rounded-full font-bold uppercase tracking-widest transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 ${
+  return `inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-full font-bold uppercase tracking-widest transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 ${
     variants[variant]
   } ${sizes[size]} ${className}`
 }

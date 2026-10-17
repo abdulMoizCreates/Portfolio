@@ -2,7 +2,7 @@ import { ArrowDown, Mail } from 'lucide-react'
 import { profile } from '../data'
 import { Badge, Button } from './ui'
 
-const ticker = ['React', 'Tailwind CSS', 'JavaScript', 'HTML5', 'CSS3', 'Responsive', 'Vite']
+const ticker = ['React', 'Tailwind', 'Supabase', 'Node.js', 'MongoDB', 'AI Visuals', 'Video Editing', 'Blender']
 
 const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
@@ -42,7 +42,7 @@ export default function Hero() {
 
       {/* Floating paper marquee slab — the inverted moment on the dark page */}
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="overflow-hidden rounded-full border border-ink/20 bg-ink py-3.5 shadow-[0_20px_60px_-24px_rgb(0_0_0/0.8)]">
+        <div className="overflow-hidden rounded-full bg-ink py-3.5 shadow-[0_20px_60px_-24px_rgb(0_0_0/0.8)]">
           <div className="marquee-track flex w-max items-center gap-8 whitespace-nowrap">
             {[...ticker, ...ticker].map((word, i) => (
               <span

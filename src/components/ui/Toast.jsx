@@ -30,7 +30,7 @@ export function ToastProvider({ children }) {
         {toasts.map((t) => (
           <div
             key={t.id}
-            className="toast-in pointer-events-auto flex w-full max-w-80 items-start gap-3 rounded-2xl border border-ink/15 bg-[#121614]/95 p-4 shadow-[0_24px_70px_-20px_rgb(0_0_0/0.7)] backdrop-blur-xl"
+            className="toast-in pointer-events-auto flex w-full max-w-80 items-start gap-3 rounded-2xl bg-[#121614]/95 p-4 shadow-[0_28px_70px_-16px_rgb(0_0_0/0.8)] backdrop-blur-xl"
           >
             {t.variant === 'success' ? (
               <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-teal-bright" aria-hidden="true" />

@@ -1,10 +1,21 @@
-import { profile, projects, education, stacks, tools } from '../data'
+import { profile, projects, education, stacks, tools, certifications, craft } from '../data'
 import { Badge, Button, Card, CardContent, CardHeader, CardTitle, List, ListItem } from './ui'
-import { ArrowUpRight, Download, FolderOpen, GraduationCap, Layers, Mail, MapPin, User } from 'lucide-react'
+import {
+  Aperture,
+  ArrowUpRight,
+  Award,
+  Download,
+  FolderOpen,
+  GraduationCap,
+  Layers,
+  Mail,
+  MapPin,
+  User,
+} from 'lucide-react'
 
 export default function Resume() {
   return (
-    <section aria-label="Resume" className="border-t border-ink/10">
+    <section aria-label="Resume">
       <div className="mx-auto max-w-6xl px-5 pb-20 sm:px-8 sm:pb-28">
         <div className="space-y-6">
           {/* Contact strip */}
@@ -21,7 +32,7 @@ export default function Resume() {
                 </Button>
                 <a
                   href={`mailto:${profile.email}`}
-                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-ink/20 px-6 text-xs font-bold uppercase tracking-widest text-ink transition-all hover:border-ink/40 hover:bg-ink/5"
+                  className="inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-full bg-ink/10 px-6 text-xs font-bold uppercase tracking-widest text-ink transition-all hover:bg-ink/15"
                 >
                   Email me
                 </a>
@@ -53,9 +64,9 @@ export default function Resume() {
             <CardContent>
               <List>
                 {stacks.map((stack) => (
-                  <ListItem key={stack.label} title={stack.label} note={stack.items.join('  ·  ')} />
+                  <ListItem key={stack.label} wrap title={stack.label} note={stack.items.join('  ·  ')} />
                 ))}
-                <ListItem title="Foundations" note={tools.join('  ·  ')} />
+                <ListItem wrap title="Foundations" note={tools.join('  ·  ')} />
               </List>
             </CardContent>
           </Card>
@@ -77,6 +88,40 @@ export default function Resume() {
                     title={item.title}
                     note={`${item.place} — ${item.period}`}
                   />
+                ))}
+              </List>
+            </CardContent>
+          </Card>
+
+          {/* Certifications */}
+          <Card>
+            <CardHeader>
+              <CardTitle>
+                <Award className="h-4 w-4 text-teal-bright" aria-hidden="true" />
+                Certifications
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <List>
+                {certifications.map((cert) => (
+                  <ListItem key={cert.title} icon={Award} title={cert.title} note={cert.issuer} />
+                ))}
+              </List>
+            </CardContent>
+          </Card>
+
+          {/* Creative craft */}
+          <Card>
+            <CardHeader>
+              <CardTitle>
+                <Aperture className="h-4 w-4 text-teal-bright" aria-hidden="true" />
+                Craft beyond the code
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <List>
+                {craft.map((item) => (
+                  <ListItem key={item.title} icon={Aperture} wrap title={item.title} note={item.detail} />
                 ))}
               </List>
             </CardContent>

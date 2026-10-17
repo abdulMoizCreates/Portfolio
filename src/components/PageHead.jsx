@@ -2,7 +2,7 @@ import { profile } from '../data'
 
 export default function PageHead({ title, blurb }) {
   return (
-    <div className="no-print mx-auto max-w-6xl px-5 pt-32 pb-12 sm:px-8 sm:pt-40 sm:pb-16">
+    <div className="no-print mx-auto max-w-6xl px-5 pt-32 pb-10 sm:px-8 sm:pt-40 sm:pb-14">
       <div className="rise flex items-center gap-3">
         <span className="pulse-dot h-2 w-2 rounded-full bg-teal-bright" aria-hidden="true" />
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-faint">

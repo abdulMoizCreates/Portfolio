@@ -1,9 +1,24 @@
 import SectionHead from './Section'
-import { facts, education, profile } from '../data'
+import { facts, education, certifications, craft, profile } from '../data'
 import { Badge, Card, CardContent, List, ListItem } from './ui'
-import { GraduationCap, LocateFixed, Send, Target } from 'lucide-react'
+import {
+  Aperture,
+  Award,
+  Boxes,
+  Clapperboard,
+  GraduationCap,
+  LocateFixed,
+  Send,
+  Target,
+} from 'lucide-react'
 
-const icons = { Location: LocateFixed, Focus: Target, Status: Send }
+const factIcons = { Location: LocateFixed, Focus: Target, Status: Send }
+
+const craftIcons = {
+  '3D Animation — Blender': Boxes,
+  Photography: Aperture,
+  Filmmaking: Clapperboard,
+}
 
 export default function About() {
   return (
@@ -14,13 +29,14 @@ export default function About() {
         <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
           <div className="max-w-xl space-y-5 text-lg leading-relaxed">
             <p>
-              {profile.name} — front-end developer from {profile.location}, studying Web &amp; Mobile
-              App Development at Saylani WMA. I build clean, responsive interfaces with React and
-              Tailwind CSS.
+              {profile.name} — creative front-end developer from {profile.location}, learning Web
+              &amp; Mobile App Development at Saylani IT. I build with React, Tailwind and
+              Supabase — and I cut videos and shape AI visuals with the same obsession: story,
+              pacing and feel.
             </p>
             <p className="text-faint">
-              Learning the MERN stack one project at a time — and cutting videos, motion graphics
-              and AI film experiments on the side.
+              Certified in Canva design and video editing, self-taught in Blender, photography and
+              filmmaking — that craft bleeds into every interface I build.
             </p>
           </div>
 
@@ -31,7 +47,7 @@ export default function About() {
                 {facts.map((fact) => (
                   <ListItem
                     key={fact.label}
-                    icon={icons[fact.label] || LocateFixed}
+                    icon={factIcons[fact.label] || LocateFixed}
                     title={fact.value}
                     note={fact.label}
                   />
@@ -46,7 +62,7 @@ export default function About() {
           <Card key={item.title} hover className="mt-6">
             <CardContent className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-start gap-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-teal-bright/25 bg-teal-bright/10">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal-bright/10">
                   <GraduationCap className="h-4.5 w-4.5 text-teal-bright" aria-hidden="true" />
                 </span>
                 <div>
@@ -58,6 +74,44 @@ export default function About() {
             </CardContent>
           </Card>
         ))}
+
+        {/* Craft beyond the code */}
+        <div className="mt-6 grid gap-6 sm:grid-cols-3">
+          {craft.map((item) => {
+            const Icon = craftIcons[item.title] || Aperture
+            return (
+              <Card key={item.title} hover>
+                <CardContent className="pt-6">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-bright/10">
+                    <Icon className="h-4.5 w-4.5 text-teal-bright" aria-hidden="true" />
+                  </span>
+                  <p className="font-display mt-4 font-bold">{item.title}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-faint">{item.detail}</p>
+                  <Badge variant="default" className="mt-4">
+                    YouTube lens
+                  </Badge>
+                </CardContent>
+              </Card>
+            )
+          })}
+        </div>
+
+        {/* Certifications */}
+        <Card hover className="mt-6">
+          <CardContent className="pt-6">
+            <div className="mb-4 flex items-center gap-2.5">
+              <Award className="h-4 w-4 text-teal-bright" aria-hidden="true" />
+              <p className="text-xs font-semibold uppercase tracking-widest text-faint">
+                Certifications
+              </p>
+            </div>
+            <List>
+              {certifications.map((cert) => (
+                <ListItem key={cert.title} icon={Award} title={cert.title} note={cert.issuer} />
+              ))}
+            </List>
+          </CardContent>
+        </Card>
       </div>
     </section>
   )

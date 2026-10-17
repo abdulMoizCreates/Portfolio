@@ -25,7 +25,7 @@ export default function Footer() {
   }, [motion, toast])
 
   return (
-    <footer className="no-print border-t border-ink/10">
+    <footer className="no-print">
       <div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-8">
         <div>
           <p className="text-xs uppercase tracking-widest text-faint">
@@ -45,7 +45,7 @@ export default function Footer() {
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="inline-flex w-fit items-center gap-2 rounded-full border border-ink/15 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-faint transition-colors hover:border-ink/40 hover:text-ink"
+          className="inline-flex w-fit cursor-pointer items-center gap-2 rounded-full bg-ink/10 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-faint transition-colors hover:bg-ink/15 hover:text-ink"
         >
           Back to top
           <ArrowUp className="h-3.5 w-3.5" aria-hidden="true" />

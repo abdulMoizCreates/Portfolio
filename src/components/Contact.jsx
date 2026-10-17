@@ -46,7 +46,7 @@ export default function Contact() {
   const state = copyEmailStates[copyStatus]
 
   return (
-    <section id="contact" className="scroll-mt-16 border-t border-ink/10">
+    <section id="contact" className="scroll-mt-16">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
         <SectionHead index="04" title="Contact" />
 
@@ -67,7 +67,7 @@ export default function Contact() {
             </CardHeader>
             <CardContent className="space-y-5">
               <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ink/10 bg-ink/5">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ink/10">
                   <Mail className="h-4 w-4 text-faint" aria-hidden="true" />
                 </span>
                 <div className="min-w-0 flex-1">
