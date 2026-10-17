@@ -77,6 +77,12 @@ body {
   animation-delay: 0.16s;
 }
 
+/* Ghost-outline display type for the hero's first line */
+.hero-stroke {
+  color: transparent;
+  -webkit-text-stroke: clamp(1px, 0.3vw, 2.5px) rgb(242 243 242 / 0.5);
+}
+
 /* Soft pulse for the availability dot */
 @keyframes pulse-dot {
   0%,
@@ -291,6 +297,10 @@ html {
   }
   .text-teal-bright {
     color: #0f766e !important;
+  }
+  .hero-stroke {
+    color: #111111;
+    -webkit-text-stroke: 0;
   }
   [class*="border-ink"] {
     border-color: rgb(17 17 17 / 0.2) !important;
