@@ -8,7 +8,7 @@ export const profile = {
   role: 'Creative Front-End Developer',
   tagline:
     'I build web interfaces the way I cut films — with story, pacing and feel. Learning full-stack web dev at Saylani IT, crafting AI visuals and video edits on the side.',
-  email: 'hello@abdulmoiz.dev', // TODO: replace with your real email
+  email: 'abdulmoiz.creates@gmail.com', // TODO: replace with your real email
   location: 'Karachi, Pakistan', // TODO: replace with your city
   availability: 'Open to internships & junior roles',
   github: 'https://github.com/abdulMoizCreates',
