@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import SectionHead from './Section'
 import { profile } from '../data'
-import { Badge, Button, Card, CardContent, CardHeader, CardTitle, Input, ListItem, List, Spinner, Textarea, useToast } from './ui'
+import { Badge, Button, Card, CardContent, CardHeader, CardTitle, Input, ListItem, List, Reveal, Spinner, Textarea, useToast } from './ui'
 import { ArrowUpRight, Check, Copy, LocateFixed, Mail } from 'lucide-react'
 
 const copyEmailStates = {
@@ -50,15 +50,16 @@ export default function Contact() {
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
         <SectionHead index="04" title="Contact" />
 
-        <p className="font-display max-w-3xl text-4xl font-bold uppercase leading-[1.05] tracking-tight sm:text-6xl">
+        <Reveal as="p" className="font-display max-w-3xl text-4xl font-bold uppercase leading-[1.05] tracking-tight text-balance sm:text-6xl">
           Have an idea?
           <br />
           <span className="text-teal-bright">Let&apos;s build it.</span>
-        </p>
+        </Reveal>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
           {/* Reach me card */}
-          <Card hover>
+          <Reveal as="div">
+            <Card hover>
             <CardHeader>
               <CardTitle>
                 <Mail className="h-4 w-4 text-teal-bright" aria-hidden="true" />
@@ -134,9 +135,11 @@ export default function Contact() {
               </Badge>
             </CardContent>
           </Card>
+          </Reveal>
 
           {/* Message form card — opens the visitor's mail app prefilled */}
-          <Card hover>
+          <Reveal as="div" delay={120}>
+            <Card hover>
             <CardHeader>
               <CardTitle>
                 <Mail className="h-4 w-4 text-teal-bright" aria-hidden="true" />
@@ -187,7 +190,8 @@ export default function Contact() {
                 </Button>
               </form>
             </CardContent>
-          </Card>
+            </Card>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -150,6 +150,78 @@ body {
   background: transparent;
 }
 
+/* Scroll reveal — elements rise + fade in the first time they enter view.
+   The delay is a CSS var so stagger siblings without inline JS styles. */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  /* Delay rides on the entrance properties only, so hover responses stay instant */
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    background-color 0.25s ease,
+    color 0.15s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Pointer spotlight on cards — a soft teal glow that follows the cursor.
+   Position is written straight into CSS vars from JS (see Card.jsx). */
+.spotlight {
+  position: relative;
+}
+
+.spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(45 212 191 / 0.07),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+/* Slim, quiet scrollbar that fits the dark canvas */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(255 255 255 / 0.14);
+  border: 3px solid var(--color-paper);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(45 212 191 / 0.45);
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(255 255 255 / 0.16) transparent;
+}
+
+/* Let a hover on the marquee slab rest the ticker */
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
 /* Toast entrance */
 @keyframes toast-in {
   from {
@@ -174,6 +246,17 @@ body {
   animation: none;
 }
 
+/* Motion off / reduced motion: reveals appear instantly, no glow chase */
+.motion-off .reveal,
+.motion-off .spotlight::before {
+  transition: none;
+}
+
+.motion-off .reveal {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -182,6 +265,14 @@ body {
   .rise,
   .pulse-dot {
     animation: none;
+  }
+  .reveal,
+  .spotlight::before {
+    transition: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
 

@@ -1,11 +1,6 @@
-import { createContext, useCallback, useContext, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { CheckCircle2, Info, X } from 'lucide-react'
-
-const ToastContext = createContext(null)
-
-export function useToast() {
-  return useContext(ToastContext)
-}
+import { ToastContext } from './useToast'
 
 export function ToastProvider({ children }) {
   const [toasts, setToasts] = useState([])
@@ -24,7 +19,7 @@ export function ToastProvider({ children }) {
     <ToastContext.Provider value={toast}>
       {children}
       <div
-        className="pointer-events-none fixed inset-x-4 bottom-4 z-[100] flex flex-col items-center gap-2 sm:inset-x-auto sm:right-6 sm:items-end"
+        className="no-print pointer-events-none fixed inset-x-4 bottom-4 z-[100] flex flex-col items-center gap-2 sm:inset-x-auto sm:right-6 sm:items-end"
         aria-live="polite"
       >
         {toasts.map((t) => (
@@ -55,3 +50,5 @@ export function ToastProvider({ children }) {
     </ToastContext.Provider>
   )
 }
+
+export default ToastProvider

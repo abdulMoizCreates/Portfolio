@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import SectionHead from './Section'
 import { meters, skills, tools } from '../data'
-import { Badge, Card, CardContent, CardHeader, CardTitle, Progress, Search, Slider } from './ui'
+import { Badge, Card, CardContent, CardHeader, CardTitle, CountUp, Progress, Reveal, Search, Slider } from './ui'
 import { ArrowLeftRight, Braces, Code2, Feather, Frame, GitBranch, Component, PenTool, SlidersHorizontal, Zap } from 'lucide-react'
 
 const toolIcons = {
@@ -46,25 +46,30 @@ export default function Skills() {
         <SectionHead index="02" title="Skills" />
 
         {/* Search card — filters the list live, "/" focuses it */}
-        <Card className="mb-10 max-w-xl">
-          <CardContent className="pt-6">
-            <Search
-              ref={inputRef}
-              type="search"
-              placeholder="Search skills, tools, frameworks…"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              aria-label="Search skills"
-            />
-          </CardContent>
-        </Card>
+        <Reveal as="div" className="mb-10 max-w-xl">
+          <Card>
+            <CardContent className="pt-6">
+              <Search
+                ref={inputRef}
+                type="search"
+                placeholder="Search skills, tools, frameworks…"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                aria-label="Search skills"
+              />
+            </CardContent>
+          </Card>
+        </Reveal>
 
         {/* Big typographic skill list — hover inverts the row */}
         <ul>
           {filtered.map((skill, index) => (
-            <li
+            <Reveal
               key={skill.name}
-              className="group flex items-baseline gap-5 py-6 transition-colors hover:bg-ink sm:gap-8"
+              as="li"
+              // Cap the stagger so long lists don't feel like they are buffering
+              delay={Math.min(index, 3) * 70}
+              className="group flex items-baseline gap-5 py-6 hover:bg-ink sm:gap-8"
             >
               <span className="font-display w-8 shrink-0 text-sm font-bold text-teal-bright transition-colors group-hover:text-teal">
                 {String(index + 1).padStart(2, '0')}
@@ -75,7 +80,7 @@ export default function Skills() {
               <span className="ml-auto hidden text-sm text-faint transition-colors group-hover:text-paper/70 sm:block">
                 {skill.note}
               </span>
-            </li>
+            </Reveal>
           ))}
         </ul>
 
@@ -87,43 +92,47 @@ export default function Skills() {
 
         {/* Stack meters card — draggable sliders + shared progress */}
         <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_1.1fr]">
-          <Card hover>
-            <CardHeader>
-              <CardTitle>
-                <SlidersHorizontal className="h-4 w-4 text-teal-bright" aria-hidden="true" />
-                Stack meters
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-5">
-                {meters.map((m) => (
-                  <div key={m.name}>
-                    <div className="mb-2.5 flex items-baseline justify-between gap-4">
-                      <span className="text-sm font-semibold">{m.name}</span>
-                      <span className="font-display text-xs font-bold text-teal-bright">
-                        {levels[m.name]}%
-                      </span>
+          <Reveal as="div">
+            <Card hover>
+              <CardHeader>
+                <CardTitle>
+                  <SlidersHorizontal className="h-4 w-4 text-teal-bright" aria-hidden="true" />
+                  Stack meters
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-5">
+                  {meters.map((m) => (
+                    <div key={m.name}>
+                      <div className="mb-2.5 flex items-baseline justify-between gap-4">
+                        <span className="text-sm font-semibold">{m.name}</span>
+                        <span className="font-display text-xs font-bold text-teal-bright">
+                          {levels[m.name]}%
+                        </span>
+                      </div>
+                      <Slider
+                        value={levels[m.name]}
+                        onChange={(e) => setLevels((l) => ({ ...l, [m.name]: Number(e.target.value) }))}
+                        aria-label={`${m.name} comfort level`}
+                      />
                     </div>
-                    <Slider
-                      value={levels[m.name]}
-                      onChange={(e) => setLevels((l) => ({ ...l, [m.name]: Number(e.target.value) }))}
-                      aria-label={`${m.name} comfort level`}
-                    />
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </Reveal>
 
-          <div className="space-y-6">
+          <Reveal as="div" className="space-y-6" delay={120}>
             {/* Average comfort progress card */}
             <Card hover>
               <CardContent className="pt-6">
                 <div className="mb-3 flex items-baseline justify-between gap-4">
                   <p className="text-sm font-semibold">Average comfort</p>
-                  <span className="font-display text-sm font-bold text-teal-bright">
-                    {Math.round(avg)}%
-                  </span>
+                  <CountUp
+                    to={Math.round(avg)}
+                    suffix="%"
+                    className="font-display text-sm font-bold text-teal-bright"
+                  />
                 </div>
                 <Progress value={avg} />
                 <p className="mt-3 text-xs leading-relaxed text-faint">
@@ -151,7 +160,7 @@ export default function Skills() {
                 </div>
               </CardContent>
             </Card>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

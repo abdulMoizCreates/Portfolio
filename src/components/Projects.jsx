@@ -1,6 +1,6 @@
 import SectionHead from './Section'
 import { profile, projects } from '../data'
-import { Badge, Card, CardContent, CardFooter } from './ui'
+import { Badge, Card, CardContent, CardFooter, Reveal } from './ui'
 import { ArrowUpRight, FolderGit2 } from 'lucide-react'
 
 export default function Projects() {
@@ -10,12 +10,14 @@ export default function Projects() {
         <SectionHead index="03" title="Projects" />
 
         <div className="grid gap-5 sm:grid-cols-2">
-          {projects.map((project) => (
-            <a
+          {projects.map((project, i) => (
+            <Reveal
               key={project.num}
+              as="a"
               href={project.link}
               target="_blank"
               rel="noreferrer"
+              delay={i * 90}
               className="group block"
               aria-label={`${project.title} — open on GitHub`}
             >
@@ -61,11 +63,11 @@ export default function Projects() {
                   </span>
                 </CardFooter>
               </Card>
-            </a>
+            </Reveal>
           ))}
         </div>
 
-        <p className="mt-10 text-sm text-faint">
+        <Reveal as="p" delay={120} className="mt-10 text-sm text-faint">
           More on{' '}
           <a
             href={profile.github}
@@ -76,7 +78,7 @@ export default function Projects() {
             GitHub
           </a>{' '}
           — new projects land here as I finish them.
-        </p>
+        </Reveal>
       </div>
     </section>
   )

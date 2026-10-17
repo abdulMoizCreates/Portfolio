@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { profile } from '../data'
@@ -14,9 +14,36 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const [hidden, setHidden] = useState(false)
+
+  // Hide when scrolling down, return the moment you scroll back up
+  useEffect(() => {
+    let lastY = window.scrollY
+    let raf = 0
+    const onScroll = () => {
+      if (raf) return
+      raf = requestAnimationFrame(() => {
+        raf = 0
+        const y = window.scrollY
+        const delta = y - lastY
+        if (y < 80 || delta < -4) setHidden(false)
+        else if (delta > 4) setHidden(true)
+        lastY = y
+      })
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (raf) cancelAnimationFrame(raf)
+    }
+  }, [])
 
   return (
-    <header className="no-print fixed inset-x-0 top-3 z-50 flex flex-col items-center gap-2 px-4 sm:top-4">
+    <header
+      className={`no-print fixed inset-x-0 top-3 z-50 flex flex-col items-center gap-2 px-4 transition-transform duration-300 ease-out sm:top-4 ${
+        hidden && !open ? '-translate-y-[calc(100%+1rem)]' : 'translate-y-0'
+      }`}
+    >
       <nav className="flex h-12 w-full max-w-6xl items-center justify-between gap-2 rounded-full bg-paper/70 pl-5 pr-1.5 shadow-[0_18px_50px_-12px_rgb(0_0_0/0.7)] backdrop-blur-xl">
         <Link to="/" className="font-display shrink-0 text-lg font-bold tracking-tight">
           {profile.initials.slice(0, -1)}

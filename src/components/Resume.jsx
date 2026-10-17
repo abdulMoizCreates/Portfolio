@@ -1,5 +1,5 @@
 import { profile, projects, education, stacks, tools, certifications, craft } from '../data'
-import { Badge, Button, Card, CardContent, CardHeader, CardTitle, List, ListItem } from './ui'
+import { Badge, Button, Card, CardContent, CardHeader, CardTitle, List, ListItem, Reveal } from './ui'
 import {
   Aperture,
   ArrowUpRight,
@@ -19,28 +19,31 @@ export default function Resume() {
       <div className="mx-auto max-w-6xl px-5 pb-20 sm:px-8 sm:pb-28">
         <div className="space-y-6">
           {/* Contact strip */}
-          <Card>
-            <CardContent className="flex flex-col gap-6 pt-6 sm:flex-row sm:items-start sm:justify-between">
-              <List className="w-full max-w-md">
-                <ListItem icon={Mail} title={profile.email} note="Email" />
-                <ListItem icon={MapPin} title={profile.location} note="Based in" />
-              </List>
-              <div className="no-print flex flex-wrap gap-3">
-                <Button onClick={() => window.print()}>
-                  <Download className="h-4 w-4" aria-hidden="true" />
-                  Download PDF
-                </Button>
-                <a
-                  href={`mailto:${profile.email}`}
-                  className="inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-full bg-ink/10 px-6 text-xs font-bold uppercase tracking-widest text-ink transition-all hover:bg-ink/15"
-                >
-                  Email me
-                </a>
-              </div>
-            </CardContent>
-          </Card>
+          <Reveal as="div">
+            <Card>
+              <CardContent className="flex flex-col gap-6 pt-6 sm:flex-row sm:items-start sm:justify-between">
+                <List className="w-full max-w-md">
+                  <ListItem icon={Mail} title={profile.email} note="Email" />
+                  <ListItem icon={MapPin} title={profile.location} note="Based in" />
+                </List>
+                <div className="no-print flex flex-wrap gap-3">
+                  <Button onClick={() => window.print()}>
+                    <Download className="h-4 w-4" aria-hidden="true" />
+                    Download PDF
+                  </Button>
+                  <a
+                    href={`mailto:${profile.email}`}
+                    className="inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-full bg-ink/10 px-6 text-xs font-bold uppercase tracking-widest text-ink transition-all hover:bg-ink/15"
+                  >
+                    Email me
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          </Reveal>
 
           {/* Summary */}
+          <Reveal as="div" delay={60}>
           <Card>
             <CardHeader>
               <CardTitle>
@@ -52,8 +55,10 @@ export default function Resume() {
               <p className="max-w-2xl text-lg leading-relaxed">{profile.tagline}</p>
             </CardContent>
           </Card>
+          </Reveal>
 
           {/* Skills */}
+          <Reveal as="div" delay={120}>
           <Card>
             <CardHeader>
               <CardTitle>
@@ -70,8 +75,10 @@ export default function Resume() {
               </List>
             </CardContent>
           </Card>
+          </Reveal>
 
           {/* Education */}
+          <Reveal as="div">
           <Card>
             <CardHeader>
               <CardTitle>
@@ -92,8 +99,10 @@ export default function Resume() {
               </List>
             </CardContent>
           </Card>
+          </Reveal>
 
           {/* Certifications */}
+          <Reveal as="div" delay={60}>
           <Card>
             <CardHeader>
               <CardTitle>
@@ -109,8 +118,10 @@ export default function Resume() {
               </List>
             </CardContent>
           </Card>
+          </Reveal>
 
           {/* Creative craft */}
+          <Reveal as="div">
           <Card>
             <CardHeader>
               <CardTitle>
@@ -126,8 +137,10 @@ export default function Resume() {
               </List>
             </CardContent>
           </Card>
+          </Reveal>
 
           {/* Selected work */}
+          <Reveal as="div" delay={60}>
           <Card>
             <CardHeader>
               <CardTitle>
@@ -162,12 +175,15 @@ export default function Resume() {
               </List>
             </CardContent>
           </Card>
+          </Reveal>
         </div>
 
-        <Badge variant="accent" className="mt-8">
-          <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-teal-bright" aria-hidden="true" />
-          {profile.availability}
-        </Badge>
+        <Reveal as="div" delay={80}>
+          <Badge variant="accent" className="mt-8">
+            <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-teal-bright" aria-hidden="true" />
+            {profile.availability}
+          </Badge>
+        </Reveal>
       </div>
     </section>
   )
